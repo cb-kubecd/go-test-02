@@ -1,0 +1,49 @@
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-credential-initializer-hw9sc[0m
+{"level":"warn","ts":1581935602.3692708,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1581935602.3702195,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-working-dir-initializer-zcmpx[0m
+{"level":"warn","ts":1581935603.3234956,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1581935603.3250606,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-git-source-meta-cb-kubecd-go-test-02-maste-h8whf-dzpqc[0m
+{"level":"warn","ts":1581935608.3949769,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1581935609.50747,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/go-test-02.git @ master in path /workspace/source"}
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-merge-pull-refs[0m
+SKIP merge-pull-refs: Nothing to merge
+
+Showing logs for build [32mmeta-cb-kubecd-go-test-02-maste-h8whf-8[0m stage [32mmeta-pipeline[0m and container [32mstep-create-effective-pipeline[0m
+Cloning the Jenkins X versions repo https://github.com/jstrachan/jenkins-x-versions.git with ref refs/heads/master to /builder/home/.**/jenkins-x-versions
+panic: runtime error: index out of range
+
+goroutine 1 [running]:
+github.com/jenkins-x/**/pkg/jenkinsfile.(*PipelineConfig).CreatePipelineForBuildPack(0xc003e50100, 0xc0008f0e80, 0xc0009728d0, 0x0, 0x0, 0x4dd9de3, 0x1f, 0xc00341fd20, 0x11, 0xc0009acb78, ...)
+	/workspace/source/pkg/jenkinsfile/pipeline.go:994 +0x932
+github.com/jenkins-x/**/pkg/cmd/step/syntax.(*StepSyntaxEffectiveOptions).createPipelineForKind(0xc000400c60, 0x4d7f181, 0x7, 0xc0008f0e80, 0xc0008f0d80, 0xc0008f0e80, 0x0, 0x0, 0x0, 0x0, ...)
+	/workspace/source/pkg/cmd/step/syntax/step_syntax_effective.go:423 +0x949
+github.com/jenkins-x/**/pkg/cmd/step/syntax.(*StepSyntaxEffectiveOptions).CreateEffectivePipeline(0xc000400c60, 0xc0008fe360, 0x58, 0xc00088a160, 0xc00619eb60, 0x1f, 0xc000bc6e00, 0x58, 0x0, 0x0)
+	/workspace/source/pkg/cmd/step/syntax/step_syntax_effective.go:348 +0x454
+github.com/jenkins-x/**/pkg/cmd/step/syntax.(*StepSyntaxEffectiveOptions).Run(0xc000400c60, 0x0, 0x0)
+	/workspace/source/pkg/cmd/step/syntax/step_syntax_effective.go:238 +0x54a
+github.com/jenkins-x/**/pkg/cmd/step/syntax.NewCmdStepSyntaxEffective.func1(0xc00064d680, 0xc0001e2280, 0x0, 0x14)
+	/workspace/source/pkg/cmd/step/syntax/step_syntax_effective.go:92 +0x6f
+github.com/spf13/cobra.(*Command).execute(0xc00064d680, 0xc0001e2140, 0x14, 0x14, 0xc00064d680, 0xc0001e2140)
+	/go/pkg/mod/github.com/spf13/cobra@v0.0.5/command.go:830 +0x2ae
+github.com/spf13/cobra.(*Command).ExecuteC(0xc00041c780, 0xc00054e7c0, 0x5acf980, 0xc0000ca000)
+	/go/pkg/mod/github.com/spf13/cobra@v0.0.5/command.go:914 +0x2fc
+github.com/spf13/cobra.(*Command).Execute(...)
+	/go/pkg/mod/github.com/spf13/cobra@v0.0.5/command.go:864
+github.com/jenkins-x/**/cmd/**/app.Run(0x0, 0x0, 0x0, 0xc0009a3f88, 0xc0000b0058)
+	/workspace/source/cmd/**/app/**.go:19 +0x185
+main.main()
+	/workspace/source/cmd/**/**.go:11 +0x32
+[31m
+Pipeline failed on stage 'meta-pipeline' : container 'step-create-effective-pipeline'. The execution of the pipeline has stopped.[0m

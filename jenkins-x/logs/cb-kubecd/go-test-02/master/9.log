@@ -1,0 +1,82 @@
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-zl9sd[0m
+{"level":"warn","ts":1581939138.6362846,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1581939138.636757,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-dpnj5[0m
+{"level":"warn","ts":1581939138.9875824,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1581939138.988637,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-cb-kubecd-go-test-02-master-jxxx9-xklmv[0m
+{"level":"warn","ts":1581939145.0486302,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1581939146.0915155,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/go-test-02.git @ v0.0.8 in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+CGO_ENABLED=0 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/go-test-02 main.go
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0217 11:32:33.768168      12 metadata.go:241] Failed to unmarshal scopes: invalid character 'h' looking for beginning of value
+[36mINFO[0m[0000] No base image, nothing to extract            
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] Skipping unpacking as no commands require it. 
+[36mINFO[0m[0000] Taking snapshot of full filesystem...        
+[36mINFO[0m[0000] EXPOSE 8080                                  
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 8080/tcp                
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] ENTRYPOINT ["/go-test-02"]                   
+[36mINFO[0m[0000] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0000] Using files from context: [/workspace/source/bin] 
+[36mINFO[0m[0000] COPY ./bin/ /                                
+[36mINFO[0m[0000] Taking snapshot of files...                  
+2020/02/17 11:32:38 pushed blob: sha256:3975d2b91a3aedbdad15478e60081238cbc807669527b5482f53f1f131f89702
+2020/02/17 11:32:38 pushed blob: sha256:c69a55af6244cc2ec67a325763216dba19e0fa2f933f17e5685b4fa551e5c09c
+2020/02/17 11:32:40 gcr.io/**-development/go-test-02:0.0.8: digest: sha256:e4a40d5d1ce92676dff2fd9900aa80721f26020ae73ef229f6e157b6bf126b52 size: 428
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+Converted /workspace/source/charts/go-test-02 to an unshallow repository
+Generating change log from git ref 37e143ffb5c4e424006bed6982eb4bb16fcbd3ea => f5da2538d66d11043b0721a2d13c6043e638e79e
+WARNING: No release found for cb-kubecd/go-test-02 and tag v0.0.8 so creating a new release
+Updated the release information at https://github.com/cb-kubecd/go-test-02/releases/tag/v0.0.8
+generated: /workspace/source/charts/go-test-02/templates/release.yaml
+Created Release go-test-02-0-0-8 resource in namespace **
+Updating PipelineActivity cb-kubecd-go-test-02-master-9 with version 0.0.8
+Updated PipelineActivities cb-kubecd-go-test-02-master-9 with release notes URL: https://github.com/cb-kubecd/go-test-02/releases/tag/v0.0.8
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-helm-release[0m
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+Successfully added Helm repository storage.googleapis.com.
+Adding missing Helm repo: jenkins-x-chartmuseum http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository jenkins-x-chartmuseum.
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Uploading chart file go-test-02-0.0.8.tgz to http://jenkins-x-chartmuseum:8080/api/charts
+Received 201 response: {"saved":true}
+
+Showing logs for build [32mcb-kubecd-go-test-02-master-jxxx9-9[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-jx-promote[0m
+WARNING: prow based install so skip waiting for the merge of Pull Requests to go green as currently there is an issue with gettingstatuses from the PR, see https://github.com/jenkins-x/**/issues/2410
+WARNING: No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Promoting app go-test-02 version 0.0.8 to namespace **-staging
+WARNING: 
+Created Pull Request: https://github.com/cb-kubecd/environment-jr17-staging/pull/3
+Added label updatebot to Pull Request https://github.com/cb-kubecd/environment-jr17-staging/pull/3
+got git provider status pending from PR https://github.com/cb-kubecd/environment-jr17-staging/pull/3
+got git provider status pending from PR https://github.com/cb-kubecd/environment-jr17-staging/pull/3
+got git provider status pending from PR https://github.com/cb-kubecd/environment-jr17-staging/pull/3
+error: Pull request https://github.com/cb-kubecd/environment-jr17-staging/pull/3 last commit has status failure for ref 3db1c57ba42a36366aa644c711244796a30fce42
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-jx-promote'. The execution of the pipeline has stopped.[0m
